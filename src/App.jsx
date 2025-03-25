@@ -54,9 +54,9 @@ export default function App() {
         pressure: data.main.pressure,
         icon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
         conditionText: data.weather[0].description
-        .split(" ") // Divide la frase en palabras
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Convierte la primera letra en mayúscula
-        .join(" "), // Une las palabras nuevamente
+        .split(" ") 
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) 
+        .join(" "), 
     });
 
       setBgColor(getBackgroundColor(data.main.temp));
@@ -78,20 +78,20 @@ export default function App() {
   };
 
   const getBackgroundColor = (temp) => {
-    if (temp <= 0) return "linear-gradient(to right, #0f0c29, #302b63, #24243e)"; // Azul oscuro (nieve/hielo)
-    if (temp > 0 && temp <= 10) return "linear-gradient(to right, #283c86, #45a247)"; // Azul-verde (invierno fresco)
-    if (temp > 10 && temp <= 20) return "linear-gradient(to right, #3a7bd5, #3a6073)"; // Azul medio (otoño/primavera)
-    if (temp > 20 && temp <= 25) return "linear-gradient(to right, #b8e994, #78e08f)"; // Verde claro (cálido)
-    if (temp > 25 && temp <= 30) return "linear-gradient(to right, #ffb75e, #ed8f03)"; // Amarillo/naranja (tropical)
-    if (temp > 30 && temp <= 35) return "linear-gradient(to right, #ff7e5f, #feb47b)"; // Naranja intenso (calor fuerte)
-    return "linear-gradient(to right, #ff512f, #dd2476)"; // Rojo (calor extremo)
+    if (temp <= 0) return "linear-gradient(to right, #0f0c29, #302b63, #24243e)"; 
+    if (temp > 0 && temp <= 10) return "linear-gradient(to right, #283c86, #45a247)"; 
+    if (temp > 10 && temp <= 20) return "linear-gradient(to right, #3a7bd5, #3a6073)"; 
+    if (temp > 20 && temp <= 25) return "linear-gradient(to right, #b8e994, #78e08f)"; 
+    if (temp > 25 && temp <= 30) return "linear-gradient(to right, #ffb75e, #ed8f03)"; 
+    if (temp > 30 && temp <= 35) return "linear-gradient(to right, #ff7e5f, #feb47b)"; 
+    return "linear-gradient(to right, #ff512f, #dd2476)"; 
   };  
 
   const addFavorite = () => {
     if (city && country) {
       let formattedCity = city
         .toLowerCase()
-        .replace(/\b\w/g, (char) => char.toUpperCase()); // Asegura que se guarde con mayúscula inicial
+        .replace(/\b\w/g, (char) => char.toUpperCase()); 
   
       const newFavorite = { city: formattedCity, country };
   
@@ -151,7 +151,7 @@ export default function App() {
   onChange={(e) => {
     let formattedCity = e.target.value
       .toLowerCase()
-      .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitaliza cada palabra
+      .replace(/\b\w/g, (char) => char.toUpperCase());
     setCity(formattedCity);
   }}
   error={error.error}
